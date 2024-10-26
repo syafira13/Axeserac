@@ -4,7 +4,7 @@ MATLAB-based purely numerical relativistic geodesic(s) code in static and axiall
 1. Analyze particle trajectories around static and axially symmetric spacetime
 2. Generate images of 'rotating body' surrounded by thin accretion disk. The rotating body itself is by default considered transparent, unless there exist an event horizon.
 
-Not a well-optimized code, but it works.. so, yap. feel free to use it :)
+Well tested on MATLAB 2023b. Not a well-optimized code, but it works.. so, yap. feel free to use it :) 
 
 ## Overview
 
