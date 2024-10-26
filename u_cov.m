@@ -1,4 +1,4 @@
-function up = u_cov(x,u,sptm,eps)
+function up = u_cov(x,u,sptm,ep)
 
 guv0 = sptm.g_uv(x);
 
@@ -12,7 +12,7 @@ uth = guv0(3,3) * u(3);
 uph1 = -alph^2*guv0(4,4)^2*u(4);
 uph2 = guv0(4,4)*(guv0(1,4)^2 - alph^2*guv0(4,4));
 uph3 =  (-guv0(1,4)^2*((ur^2/guv0(2,2)) +...
-        (uth^2/guv0(3,3)) + eps))...
+        (uth^2/guv0(3,3)) + ep))...
         + alph^2*guv0(4,4)^2*u(4)^2;
 uph4 = alph^4*guv0(4,4)^4*u(4)^2;
 uph5 = guv0(1,4)^2 - alph^2*guv0(4,4);

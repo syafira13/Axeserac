@@ -6,11 +6,13 @@ clear all; clc; clf;
 
 %------[Configurations]------%
 
+
 % Screen and spacetime %
 sptm                = sptm_KerrNewman; % Spacetime
 Resolution          = [100 100]; % Screen resolution (pixel)
 FoV                 = 12*sptm.M; % Field of view
 ScreenDistance      = 0.001;
+
 
 % Initial conditions %
 th0                 = pi/2-0.3; % Initial inclination
@@ -34,17 +36,16 @@ upper_R             = 20*sptm.M; % Accretion disk outer radius
 % Integration settings %
 err_low             = 1e-10; % Lowest error
 err_high            = 1e-7; % Highest error
-dxdu                = 1e-6; % Spatial differentiation interval
-int_method          = integ_rk4;
-
+dxdu                = 1e-6; % Differentiation interval
+int_method          = integ_rk4; % Integration method
+t_end               = 10000000; % Observer time limit
 
 
 %------[Configurations]------%
 
-
 dt = -1; 
-e = [eps, dt, dxdu];
-eh = [eps, dt/2, dxdu];
+e = [0, dt, dxdu];
+eh = [0, dt/2, dxdu];
 
 dr0 = 1;
 x0 = [0, r0, th0, 0];
@@ -67,7 +68,7 @@ dth0            = dz_init / r0;
 
 Image           = zeros(Resolution(2),Resolution(1));
 Phirec          = zeros(Resolution(2),Resolution(1));
-t_end = 10000000; nt = abs(t_end/dt);
+nt              = abs(t_end/dt);
 tic
 for i = 1:Resolution(1)
     parfor j = 1:Resolution(2)
